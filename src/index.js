@@ -19,7 +19,9 @@ menueInit();
     nav.children[1].addEventListener('click', ()=>{
 
         clearContent(); 
-
+        content.children[1].style.display = 'grid';
+        
+        console.log(content.children[1]);
     });
 
     nav.children[2].addEventListener('click', ()=>{

@@ -2,6 +2,35 @@ export {homeInit, menueInit, clearContent,content};
 
 
 
+const mealArray = [
+    {   name: 'Steakito',
+        price: 15,
+        pictureUrl: 'https://i.ibb.co/wcZVXtY/steakist.png'
+    },
+    {   name: 'Tamales',
+        price: 19,
+        pictureUrl: 'https://i.ibb.co/9NXTXWF/tamales.png'
+    },
+    {   name: 'Fry bread',
+        price: 17,
+        pictureUrl: 'https://i.ibb.co/WzBwgP8/frybread.png'
+    },
+    {   name: 'Gentada',
+        price: 20,
+        pictureUrl: 'https://i.ibb.co/tLxGr7S/gentada.png'
+    },
+    {   name: 'Gentito',
+        price: 15,
+        pictureUrl: 'https://i.ibb.co/BtKBTn6/gentito.png'
+    },
+    {   name: 'Romana',
+        price: 12,
+        pictureUrl: 'https://i.ibb.co/9VpKDjR/romana.png'
+    },
+    
+];
+
+
 const content = document.querySelector('#content');
 
 
@@ -99,41 +128,42 @@ const homeInit = function(){ //populate home page
 // https://i.ibb.co/9VpKDjR/romana.png
 //https://i.ibb.co/ZxZk4yt/restaurant-Bg.png
 
-const mealArray = [
-    {   name: 'Steakito',
-        price: 15,
-        pictureUrl: 'https://i.ibb.co/wcZVXtY/steakist.png'
-    },
-    {   name: 'Tamales',
-        price: 19,
-        pictureUrl: 'https://i.ibb.co/9NXTXWF/tamales.png'
-    },
-    {   name: 'Fry bread',
-        price: 17,
-        pictureUrl: 'https://i.ibb.co/WzBwgP8/frybread.png'
-    },
-    {   name: 'Gentada',
-        price: 20,
-        pictureUrl: 'https://i.ibb.co/tLxGr7S/gentada.png'
-    },
-    {   name: 'Gentito',
-        price: 15,
-        pictureUrl: 'https://i.ibb.co/BtKBTn6/gentito.png'
-    },
-    {   name: 'Romana',
-        price: 12,
-        pictureUrl: 'https://i.ibb.co/9VpKDjR/romana.png'
-    },
-    
-];
+
 
 const menueInit = function(){ //populate menue
 
     const menuDiv = document.createElement('div');
+
+    menuDiv.style.cssText = 'display:none; padding: 50px; gap: 1%';
+    menuDiv.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
+
+    for(let i = 0; i < mealArray.length; i++){ //create meal cards and append them to menueDiv
+
+        const mealCard = document.createElement('div');
+        const mealCardPicture = document.createElement('img');
+        const mealCardName = document.createElement('h3');
+        const mealCardPrice = document.createElement('p');
+
+        mealCard.appendChild(mealCardPicture);
+        mealCard.appendChild(mealCardName);
+        mealCard.appendChild(mealCardPrice);
+
+        //style
+
+        mealCard.style.cssText = 'gap: 1%;display:flex; flex-direction:column; align-items:center';
+        mealCardPicture.src = mealArray[i].pictureUrl;
+
+        mealCardName.innerHTML = mealArray[i].name;
+        mealCardName.style.cssText = 'font-size: calc(3.5rem + 1vw);text-shadow:0 0 5px white';
+
+        mealCardPrice.innerHTML = `${mealArray[i].price} $`;
+        mealCardPrice.style.cssText = 'font-size :calc(2.5rem + 1vw);text-shadow:0 0 5px white';
+
+        menuDiv.appendChild(mealCard);
+    };
+
+
     content.appendChild(menuDiv);
-
-
-    menuDiv.style.display.gridTemplateColumns = 'repeat(auto-fit,minmax(300px, 1fr))';
 
 };
 
@@ -149,13 +179,8 @@ const clearContent = function(){
 
     const contentChildren = content.children;
     
-    // for( let i = 0; i <= contentChildren.length - 1; i++){
-    // contentChildren[i].style.display = 'none';
-    // };
+    for( let i = 0; i <= contentChildren.length - 1; i++){
+    contentChildren[i].style.display = 'none';
+    };
 
-    // while(contentChildren.length){
-    //     content.removeChild(contentChildren[0]);
-    // }
-
-    content.children[0].style.display = 'none';
 };
