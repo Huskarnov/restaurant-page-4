@@ -1,4 +1,4 @@
-export {homeInit, menueInit, clearContent,content};
+export {homeInit, menueInit,contactInit, clearContent,content};
 
 
 
@@ -64,7 +64,6 @@ const homeInit = function(){ //populate home page
     const contentRightMeal6 = document.createElement('img')
 
 
-    content.appendChild(homeDiv);
 
     homeDiv.appendChild(contentLeft);
     homeDiv.appendChild(contentRight);
@@ -115,7 +114,11 @@ const homeInit = function(){ //populate home page
     contentRightMeal5.style.cssText = mealStyle;
 
     contentRightMeal6.src = 'https://i.ibb.co/wcZVXtY/steakist.png';
-    contentRightMeal6.style.cssText = mealStyle;}
+    contentRightMeal6.style.cssText = mealStyle;
+
+    content.appendChild(homeDiv);
+
+}
 
 ;
 
@@ -167,7 +170,43 @@ const menueInit = function(){ //populate menue
 
 };
 
+const contactInit = function(){
 
+    const contactDiv = document.createElement('div');
+
+    contactDiv.style.cssText = 'display:none;flex-direction:column; align-items:center;justify-content:center';
+
+    const contactTitle = document.createElement('h1');
+    const contactForm = document.createElement('form');
+    const contactFormTextArea = document.createElement('textarea');
+    const contactFormButton = document.createElement('button');
+
+    contactTitle.innerHTML = 'Get in touch';
+    contactTitle.style.cssText = 'text-shadow:0 0 5px white;user-select: none;font-size : calc(4.5rem + 0.5vw)';
+
+    contactForm.style.cssText = 'gap: 1rem;display:flex; flex-direction:column; align-items:center;width: calc(30rem + 10vw);border: none; height:calc(30rem + 10vh)';
+    
+    contactFormTextArea.style.cssText ='color: white;font-size : calc(1.5rem + 0.5vw);background-color:#80473b62;outline:none;border-radius: 1rem;border: 1rem ridge #813d2e; width: 80%; height: 80%';
+
+    contactFormButton.innerHTML = 'Submit';
+    contactFormButton.style.cssText ='border-radius: 15px;padding: 1rem 5rem;font-size: 2rem;color:white;background-color:#000000';
+
+    contactFormButton.addEventListener('click',(event)=>{
+        event.preventDefault();
+        if((contactFormTextArea.value !='')){
+        alert('Thank you! We will get back at you as soon as possible');
+        contactFormTextArea.value = '';
+        };
+    });
+
+    contactDiv.appendChild(contactTitle);
+    contactDiv.appendChild(contactForm);
+    contactForm.appendChild(contactFormTextArea);
+    contactForm.appendChild(contactFormButton);
+
+    content.appendChild(contactDiv);
+
+};
 
 
 

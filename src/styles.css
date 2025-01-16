@@ -61,18 +61,32 @@ html{
   nav{
     display: flex; 
     justify-content: center; 
-    gap: calc(0.5rem + 1vw);
+    align-items: center;
+    
     color: white; 
     background-color : #38140634;
     padding : calc(2rem + 1.5vw) 0;
- 
-}
 
+    gap: 2vw;
+  height: calc(150px + 4vw);
+
+    
+  }
+
+nav img{
+  position: absolute;
+  top:0;
+  left:0;
+  height: calc(150px + 4vw);
+  width: auto;
+
+}
   nav button{
+    height: calc(60px + 2vw);
     font-size: calc(2.5rem + 0.5vw);
-    padding: calc(0.5rem + 0.2vw) calc(6rem + 1.5vw);
+    width: calc(25rem + 2.5vw);
     border-radius: 2rem;
-    background-color : #813d2e;
+    background-color : #80473b;
     color:white;
     user-select: none;
   }
