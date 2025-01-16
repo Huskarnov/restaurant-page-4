@@ -153,7 +153,7 @@ const menueInit = function(){ //populate menue
 
         //style
 
-        mealCard.style.cssText = 'gap: 1%;display:flex; flex-direction:column; align-items:center';
+        mealCard.style.cssText = 'gap: 1rem;display:flex; flex-direction:column; align-items:center';
         mealCardPicture.src = mealArray[i].pictureUrl;
 
         mealCardName.innerHTML = mealArray[i].name;
