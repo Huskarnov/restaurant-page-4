@@ -135,7 +135,7 @@ const menueInit = function(){ //populate menue
     const menuDiv = document.createElement('div');
 
     menuDiv.style.cssText = 'display:none; padding: 50px; gap: 1%';
-    menuDiv.style.gridTemplateColumns = 'repeat(auto-fit, 1f)';
+    menuDiv.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr)';
 
     for(let i = 0; i < mealArray.length; i++){ //create meal cards and append them to menueDiv
 
