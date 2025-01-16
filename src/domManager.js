@@ -1,35 +1,26 @@
-
-
-export {domInit, clearContent};
-
-// import restaurantBg from './assets/restaurantBg.png';
-
-// import meal1 from './assets/mealpics/frybread.png';
-// import meal2 from './assets/mealpics/gentada.png';
-// import meal3 from './assets/mealpics/gentito.png';
-// import meal4 from './assets/mealpics/greenchilestew.png';
-// import meal5 from './assets/mealpics/romana.png';
-// import meal6 from './assets/mealpics/steakist.png';
-
+export {homeInit, menueInit, clearContent,content};
 
 
 
 const content = document.querySelector('#content');
 
 
-const domInit = function(){ //populate home page
+
+const homeInit = function(){ //populate home page
 
     document.body.style.fontFamily  = "'Rye'";
     document.body.style.backgroundImage = `url(https://i.ibb.co/ZxZk4yt/restaurant-Bg.png)`;
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundRepeat = 'no-repeat';
-
-    
     
     // ---------------------------------------NAV
-    const nav = document.querySelector('nav');
+    // const nav = document.querySelector('nav');
 
     // ---------------------------------------CONTENT
+
+    const homeDiv = document.createElement('div');
+
+
 
     const contentLeft = document.createElement('div');
     const contentLeftParagraph = document.createElement('p');
@@ -43,8 +34,11 @@ const domInit = function(){ //populate home page
     const contentRightMeal5 = document.createElement('img')
     const contentRightMeal6 = document.createElement('img')
 
-    content.appendChild(contentLeft);
-    content.appendChild(contentRight);
+
+    content.appendChild(homeDiv);
+
+    homeDiv.appendChild(contentLeft);
+    homeDiv.appendChild(contentRight);
 
     contentLeft.appendChild(contentLeftParagraph);
     contentLeft.appendChild(contentLeftButton);
@@ -59,23 +53,23 @@ const domInit = function(){ //populate home page
     // styles //
 
 
-    content.style.display = 'grid';
-    content.style.gridTemplateColumns = '2fr 3fr';
+    homeDiv.style.display = 'grid';
+    homeDiv.style.gridTemplateColumns = '2fr 3fr';
 
     ////
-    contentLeft.style.cssText = 'padding: calc(4.5rem + 3vh); display: flex; flex-direction : column; gap: 5rem';
-    contentLeft.style.alignItems  = 'center';
+    contentLeft.style.cssText = 'align-items: center; padding: calc(4.5rem + 3vh); display: flex; flex-direction : column; gap: 5rem';
 
     contentLeftParagraph.innerHTML = 'Live the food experience of the old cowboys, enjoy your western meals while listening to the live country music band';
-    contentLeftParagraph.style.cssText = 'user-select: none;font-size : calc(4.5rem + 0.5vw); text-align:center';
-    contentLeftParagraph.style.textShadow = '0 0 5px white ';
+    contentLeftParagraph.style.cssText = 'text-shadow:0 0 5px white;user-select: none;font-size : calc(4.5rem + 0.5vw); text-align:center';
 
     contentLeftButton.innerHTML = 'Reserve now !!'
     contentLeftButton.style.cssText = ' padding: calc(0.8rem + 0.5vw) calc(5.5rem + 2vw);font-size: calc(2.5rem + 0.5vw); border-radius: 15rem; background-color : #813d2e; color:white';
     ////
     contentRight.style.cssText = 'padding: calc(4.5rem + 3vh);justify-content: center;gap: calc(4.5rem + 0.5vw);display:flex; flex-wrap: wrap';
 
+
     const mealStyle = 'height: calc(19rem + 3.5vw); width 20rem;border-radius: 5rem; box-shadow: 0 0 2rem black';
+    
     contentRightMeal1.src = 'https://i.ibb.co/FhxB8m5/greenchilestew.png';
     contentRightMeal1.style.cssText = mealStyle;
 
@@ -92,9 +86,9 @@ const domInit = function(){ //populate home page
     contentRightMeal5.style.cssText = mealStyle;
 
     contentRightMeal6.src = 'https://i.ibb.co/wcZVXtY/steakist.png';
-    contentRightMeal6.style.cssText = mealStyle;
+    contentRightMeal6.style.cssText = mealStyle;}
 
-};
+;
 
 // https://i.ibb.co/wcZVXtY/steakist.png
 // https://i.ibb.co/9NXTXWF/tamales.png
@@ -105,11 +99,41 @@ const domInit = function(){ //populate home page
 // https://i.ibb.co/9VpKDjR/romana.png
 //https://i.ibb.co/ZxZk4yt/restaurant-Bg.png
 
+const mealArray = [
+    {   name: 'Steakito',
+        price: 15,
+        pictureUrl: 'https://i.ibb.co/wcZVXtY/steakist.png'
+    },
+    {   name: 'Tamales',
+        price: 19,
+        pictureUrl: 'https://i.ibb.co/9NXTXWF/tamales.png'
+    },
+    {   name: 'Fry bread',
+        price: 17,
+        pictureUrl: 'https://i.ibb.co/WzBwgP8/frybread.png'
+    },
+    {   name: 'Gentada',
+        price: 20,
+        pictureUrl: 'https://i.ibb.co/tLxGr7S/gentada.png'
+    },
+    {   name: 'Gentito',
+        price: 15,
+        pictureUrl: 'https://i.ibb.co/BtKBTn6/gentito.png'
+    },
+    {   name: 'Romana',
+        price: 12,
+        pictureUrl: 'https://i.ibb.co/9VpKDjR/romana.png'
+    },
+    
+];
+
 const menueInit = function(){ //populate menue
 
-    content.style.display.gridTemplateColumns = 'repeat(auto-fit,minmax(300px, 1fr))';
+    const menuDiv = document.createElement('div');
+    content.appendChild(menuDiv);
 
 
+    menuDiv.style.display.gridTemplateColumns = 'repeat(auto-fit,minmax(300px, 1fr))';
 
 };
 
@@ -129,7 +153,9 @@ const clearContent = function(){
     // contentChildren[i].style.display = 'none';
     // };
 
-    while(contentChildren.length){
-        content.removeChild(contentChildren[0]);
-    }
+    // while(contentChildren.length){
+    //     content.removeChild(contentChildren[0]);
+    // }
+
+    content.children[0].style.display = 'none';
 };

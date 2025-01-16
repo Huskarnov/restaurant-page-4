@@ -1,8 +1,8 @@
-import {domInit, clearContent} from './domManager.js';
+import {homeInit, clearContent, content, menueInit} from './domManager.js';
 import './styles.css';
 
-domInit();
-
+homeInit();
+menueInit();
 
 (function navBarButtonEvents(){           //nav buttons click events
 
@@ -11,7 +11,8 @@ domInit();
     nav.children[0].addEventListener('click', ()=>{
 
         clearContent(); 
-        domInit();
+        content.children[0].style.display = 'grid';
+        // homeInit();
 
     });
 
