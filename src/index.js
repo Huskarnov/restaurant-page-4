@@ -4,7 +4,6 @@ import './styles.css';
 homeInit();
 menueInit();
 contactInit();
-
 (function navBarButtonEvents(){           //nav buttons click events
 
     const nav = document.querySelector('nav');
