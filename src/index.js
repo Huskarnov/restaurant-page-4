@@ -1,6 +1,6 @@
 import {homeInit,menueInit, contactInit, clearContent, content, } from './domManager.js';
 import './styles.css';
-// 
+// x
 homeInit();
 menueInit();
 contactInit();
