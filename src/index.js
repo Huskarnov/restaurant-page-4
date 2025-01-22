@@ -1,9 +1,10 @@
 import {homeInit,menueInit, contactInit, clearContent, content, } from './domManager.js';
 import './styles.css';
-// 
+
 homeInit();
 menueInit();
 contactInit();
+
 (function navBarButtonEvents(){           //nav buttons click events
 
     const nav = document.querySelector('nav');
