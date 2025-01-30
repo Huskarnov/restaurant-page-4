@@ -4,8 +4,10 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "clean": "rm -rf dist/"
+    "build": "webpack --config webpack.prod.js",
+    "clean": "rm -rf dist/",
+    "start": "webpack serve --config webpack.dev.js",
+    "watch": "webpack --watch --config webpack.dev.js"
   },
   "repository": {
     "type": "git",
